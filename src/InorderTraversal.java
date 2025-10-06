@@ -23,6 +23,16 @@ public class InorderTraversal {
         inorderTraversal(root.right, arr);
     }
 
+    public static void preOrderTraversal(TreeNode root, List<Integer> arr){
+        if(root == null){
+            return;
+        }
+
+        arr.add(root.data);
+        preOrderTraversal(root.left, arr);
+        preOrderTraversal(root.right, arr);
+    }
+
     public static void main(String[] args) {
         // Sample binary tree
         TreeNode root = new TreeNode(1);
@@ -32,8 +42,10 @@ public class InorderTraversal {
         root.left.right = new TreeNode(5);
 
         List<Integer> result = new ArrayList<>();
-        inorderTraversal(root, result);
+        //inorderTraversal(root, result);
+        preOrderTraversal(root, result);
 
-        System.out.println("Inorder Traversal: " + result);
+        //System.out.println("inorder Traversal: " + result);
+        System.out.println("preorder Traversal: " + result);
     }
 }
